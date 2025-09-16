@@ -4,6 +4,7 @@
 
 Created by **Pavel Nakaznenko** to bridge the distance between family members with simple, secure peer-to-peer video calls.
 
+## [Demo](https://kpekep.github.io/Papaphone/)
 ## 💝 Why Papaphone?
 
 Sometimes the simplest connections matter the most. Papaphone was born from a father's desire to stay close to his children and parents without the complexity of traditional video calling apps. No accounts, no servers storing your data, no complicated setup - just pure, direct family connections.
@@ -45,7 +46,7 @@ Perfect for:
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/KPEKEP/Papaphone
 cd papaphone
 
 # Install dependencies
@@ -190,5 +191,6 @@ MIT License - Free for all families to use and modify.
 To the WebRTC community, open-source contributors, and every parent and child who inspired this project.
 
 ---
+
 
 **Made with ❤️ by Pavel Nakaznenko for families everywhere**
