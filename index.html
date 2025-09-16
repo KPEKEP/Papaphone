@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--
+    Papaphone (Папафон) - Family Video Calling Application
+    Created by Pavel Nakaznenko with ❤️ for families everywhere
+    
+    Simple, secure peer-to-peer video calls to connect with kids and parents
+    No servers, no accounts, no complexity - just family connections
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papaphone - Family Video Calls</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 data-i18n="app.title">📞 Papaphone</h1>
+                <p data-i18n="app.subtitle">Secure peer-to-peer calls for family connections</p>
+            </div>
+            <div class="language-selector">
+                <label for="languageSelect" data-i18n="language.select">Language</label>
+                <select id="languageSelect">
+                    <option value="en" data-i18n="language.english">English</option>
+                    <option value="ru" data-i18n="language.russian">Русский</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- Instructions -->
+        <section id="instructions" class="card instructions-card">
+            <h3 data-i18n="instructions.title">📋 How to Use</h3>
+            <div class="instructions-content">
+                <div class="instruction-section">
+                    <h4>To create a call:</h4>
+                    <ol>
+                        <li data-i18n="instructions.step1">1. Click "Create Call" to start a new video call</li>
+                        <li data-i18n="instructions.step2">2. Copy the generated offer and send it to the person you want to call</li>
+                        <li data-i18n="instructions.step3">3. Wait for them to join and send you an answer</li>
+                        <li data-i18n="instructions.step4">4. Paste their answer to complete the connection</li>
+                    </ol>
+                </div>
+                <div class="instruction-section">
+                    <h4>To join a call:</h4>
+                    <ol>
+                        <li data-i18n="instructions.joinStep1">1. Get an offer from someone who created a call</li>
+                        <li data-i18n="instructions.joinStep2">2. Paste the offer and click "Join Call"</li>
+                        <li data-i18n="instructions.joinStep3">3. Copy the generated answer and send it back</li>
+                        <li data-i18n="instructions.joinStep4">4. Enjoy your secure peer-to-peer video call!</li>
+                    </ol>
+                </div>
+                <div class="security-info">
+                    <p data-i18n="instructions.security">🔒 Your connection is completely peer-to-peer and secure</p>
+                    <p data-i18n="instructions.noServers">🌐 No data passes through our servers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connection Status -->
+        <section id="connectionStatus" class="status-card" role="status" aria-live="polite">
+            <div class="status-indicator" id="statusIndicator"></div>
+            <span id="statusText" data-i18n="status.initializing">Initializing...</span>
+        </section>
+
+        <!-- Call Setup -->
+        <section id="callSetup" class="card main-actions">
+            <div class="call-options">
+                <button id="createCallBtn" class="btn btn-primary btn-large">
+                    <span>📞</span> <span data-i18n="setup.createCall">Create Call</span>
+                </button>
+                <p class="call-description" data-i18n="setup.createCallDescription">Create a secure peer-to-peer video call</p>
+            </div>
+            
+            <div class="divider">
+                <span data-i18n="setup.or">OR</span>
+            </div>
+            
+            <div class="join-options">
+                <h3 data-i18n="setup.joinCall">Join a Call</h3>
+                <p data-i18n="setup.joinCallDescription">Paste the offer you received:</p>
+                <div class="offer-input-container">
+                    <textarea id="offerInput" data-i18n="setup.offerPlaceholder" placeholder="Paste the offer here..." rows="4" aria-label="Offer input"></textarea>
+                    <button id="joinCallBtn" class="btn btn-secondary btn-large">
+                        🎥 <span data-i18n="setup.joinCallButton">Join Call</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call Created -->
+        <section id="callCreated" class="card call-created-section hidden">
+            <h3 data-i18n="created.title">Call Ready! 📞</h3>
+            <p data-i18n="created.description">Copy this offer and send it to the person you want to call:</p>
+            
+            <div class="offer-section">
+                <div class="offer-container">
+                    <textarea id="callOffer" readonly placeholder="Generating offer..." rows="6" aria-label="Generated offer"></textarea>
+                    <button id="copyOfferBtn" class="btn btn-copy">
+                        📋 <span data-i18n="created.copyOffer">Copy Offer</span>
+                    </button>
+                </div>
+                <p class="offer-info">
+                    <span id="offerStatus" data-i18n="created.offerStatus">Generating secure offer...</span>
+                </p>
+            </div>
+            
+            <div class="answer-input-section">
+                <h4 data-i18n="created.waitingResponse">Waiting for Response</h4>
+                <p data-i18n="created.waitingDescription">When the other person joins, they'll send you an answer. Paste it below:</p>
+                <div class="answer-input-container">
+                    <textarea id="answerInput" data-i18n="created.answerPlaceholder" placeholder="Paste the answer here..." rows="6" aria-label="Answer input"></textarea>
+                    <button id="connectWithAnswerBtn" class="btn btn-primary">
+                        🎥 <span data-i18n="created.startCall">Start Call</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call Active -->
+        <section id="callActive" class="card call-active-section hidden">
+            <h3 data-i18n="active.title">Connected! 📹</h3>
+            <p data-i18n="active.description">Copy this answer and send it back to complete the connection:</p>
+            
+            <div class="answer-section">
+                <div class="answer-container">
+                    <textarea id="callAnswer" readonly placeholder="Generating answer..." rows="6" aria-label="Generated answer"></textarea>
+                    <button id="copyAnswerBtn" class="btn btn-copy">
+                        📋 <span data-i18n="active.copyAnswer">Copy Answer</span>
+                    </button>
+                </div>
+                <p class="answer-info">
+                    <span id="answerStatus" data-i18n="active.answerStatus">Generating answer...</span>
+                </p>
+            </div>
+            
+            <div class="call-status">
+                <div class="status-icon">🎥</div>
+                <p><strong data-i18n="active.callActiveTitle">Call Active!</strong> <span data-i18n="active.callActiveDescription">Send the answer above to complete the connection.</span></p>
+            </div>
+        </section>
+
+        <!-- Video Chat -->
+        <section id="videoChat" class="video-chat-section hidden">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video id="localVideo" autoplay muted playsinline aria-label="Local video"></video>
+                    <div class="video-label" data-i18n="video.you">You</div>
+                    <div class="video-controls">
+                        <button id="toggleVideoBtn" class="control-btn" aria-label="Toggle video" title="Toggle video">
+                            <span data-i18n="video.toggleVideo">📹</span>
+                        </button>
+                        <button id="toggleAudioBtn" class="control-btn" aria-label="Toggle audio" title="Toggle audio">
+                            <span data-i18n="video.toggleAudio">🎤</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="video-wrapper">
+                    <video id="remoteVideo" autoplay playsinline aria-label="Remote video"></video>
+                    <div class="video-label" data-i18n="video.remote">Remote</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat -->
+        <section id="chatContainer" class="card chat-section hidden">
+            <div class="chat-header">
+                <h3 data-i18n="chat.title">💬 Chat</h3>
+                <button id="toggleChatBtn" class="btn btn-small" aria-label="Toggle chat" data-i18n="chat.toggle">−</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+            
+            <div class="chat-input">
+                <input type="text" id="messageInput" data-i18n="chat.placeholder" placeholder="Type a message..." maxlength="500" aria-label="Message input">
+                <button id="sendMessageBtn" class="btn btn-primary">
+                    <span data-i18n="chat.send">Send</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- File Transfer -->
+        <section id="fileTransfer" class="card file-transfer-section hidden">
+            <h3 data-i18n="file.title">📁 File Transfer</h3>
+            
+            <div class="file-send">
+                <input type="file" id="fileInput" multiple aria-label="Select files to send">
+                <button id="sendFileBtn" class="btn btn-secondary">
+                    📤 <span data-i18n="file.send">Send File</span>
+                </button>
+                <div class="progress-container">
+                    <progress id="sendProgress" max="100" value="0" aria-label="Send progress"></progress>
+                    <span id="sendProgressText">0%</span>
+                </div>
+            </div>
+            
+            <div class="file-receive">
+                <h4 data-i18n="file.received">Received Files:</h4>
+                <div id="receivedFiles" role="list" aria-label="Received files"></div>
+                <div class="progress-container">
+                    <progress id="receiveProgress" max="100" value="0" aria-label="Receive progress"></progress>
+                    <span id="receiveProgressText">0%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connection Info -->
+        <section id="connectionInfo" class="card connection-info-section hidden">
+            <h3 data-i18n="info.title">🔗 Connection Details</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label" data-i18n="info.connectionState">Connection State:</span>
+                    <span id="connectionState">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label" data-i18n="info.iceState">ICE State:</span>
+                    <span id="iceState">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label" data-i18n="info.dataChannels">Data Channels:</span>
+                    <span id="dataChannels">-</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" role="alert" aria-live="assertive"></div>
+
+    <!-- Scripts -->
+    <script src="localization.js"></script>
+    <script src="webrtc.js"></script>
+</body>
+</html>

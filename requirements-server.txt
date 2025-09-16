@@ -1,0 +1,7 @@
+# Optional dependencies for secure_server.py
+# Install with: pip install -r requirements-server.txt
+
+# For SSL certificate generation (recommended)
+cryptography>=3.0.0
+
+# Note: OpenSSL command-line tool can be used as fallback if cryptography is not available
