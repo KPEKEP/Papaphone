@@ -46,12 +46,19 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -366,6 +373,14 @@ header p {
 /* Join Options */
 .join-options {
     text-align: center;
+}
+
+.join-options h3 {
+    margin-bottom: 1rem;
+}
+
+.join-options p {
+    margin-bottom: 1rem;
 }
 
 .join-options .btn {
@@ -734,6 +749,11 @@ header p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Mirror local video for natural appearance */
+#localVideo {
+    transform: scaleX(-1);
 }
 
 .video-label {
@@ -1199,35 +1219,133 @@ progress::-moz-progress-bar {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
     .container {
         padding: 0.5rem;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     header {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+        padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .header-content {
         text-align: center;
+        width: 100%;
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    header p {
+        font-size: 1rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        hyphens: auto;
     }
     
     .language-selector {
         align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .card {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
     }
     
     .instructions-content {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        width: 100%;
+    }
+    
+    .instruction-section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .instruction-section ol {
+        padding-left: 1.2rem;
+        width: 100%;
+    }
+    
+    .instruction-section li {
+        word-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.5;
+    }
+    
+    .security-info {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    
+    .security-info p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        hyphens: auto;
+        margin: 0.5rem 0;
     }
     
     .video-container {
         grid-template-columns: 1fr;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .video-wrapper {
+        aspect-ratio: 16/9;
+        min-height: 200px;
+        width: 100%;
+    }
+    
+    .call-options,
+    .join-options {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .join-options {
+        text-align: left;
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .join-options h3 {
+        text-align: left;
+        margin-bottom: 1rem;
+        display: block !important;
+        width: 100% !important;
+        clear: both;
+    }
+    
+    .join-options p {
+        text-align: left;
+        margin-bottom: 1rem;
+        display: block !important;
+        width: 100% !important;
+        clear: both;
     }
     
     .call-options .btn,
@@ -1236,51 +1354,447 @@ progress::-moz-progress-bar {
         width: 100%;
         padding: 1rem 1.5rem;
         font-size: 1rem;
+        margin-bottom: 0.75rem;
+        box-sizing: border-box;
     }
     
-    .offer-input-container {
-        flex-direction: column;
+    .call-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        hyphens: auto;
+        text-align: center;
     }
     
+    .join-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+        hyphens: auto;
+        text-align: left;
+    }
+    
+    .divider {
+        margin: 2rem 0;
+        text-align: center;
+    }
+    
+    .divider span {
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0 1rem;
+    }
+    
+    .offer-input-container,
     .answer-input-container {
         flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .offer-input-container textarea,
+    .answer-input-container textarea {
+        min-height: 120px;
+        font-size: 0.875rem;
+        width: 100%;
+        box-sizing: border-box;
+        resize: vertical;
     }
     
     .chat-messages {
-        height: 250px;
+        height: 200px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .message {
         max-width: 85%;
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .chat-input {
+        padding: 0.75rem;
+        gap: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .chat-input input {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .file-send {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .info-grid {
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 0;
+        width: 100%;
+        word-wrap: break-word;
+    }
+    
+    .info-label {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
     }
     
     #toastContainer {
-        left: 1rem;
-        right: 1rem;
+        left: 0.5rem;
+        right: 0.5rem;
+        top: 0.5rem;
     }
     
     .toast {
         max-width: none;
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+        word-wrap: break-word;
+    }
+    
+    /* Fix text overflow issues */
+    h1, h2, h3, h4, p, span, div {
+        word-wrap: break-word;
+        hyphens: auto;
+        overflow-wrap: break-word;
+    }
+    
+    /* Ensure all containers respect mobile width */
+    .main-actions,
+    .call-created-section,
+    .call-active-section,
+    .video-chat-section,
+    .chat-section,
+    .file-transfer-section,
+    .connection-info-section {
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    /* Force main actions to be vertical on mobile */
+    .main-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    .main-actions .call-options,
+    .main-actions .divider,
+    .main-actions .join-options {
+        width: 100% !important;
+        margin-bottom: 1.5rem;
+        flex: none !important;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+        .main-actions {
+            display: -webkit-flex !important;
+            display: flex !important;
+            -webkit-flex-direction: column !important;
+            flex-direction: column !important;
+            -webkit-align-items: stretch !important;
+            align-items: stretch !important;
+        }
+        
+        .join-options {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+        }
+        
+        .join-options h3 {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            margin-bottom: 1rem !important;
+            clear: both !important;
+        }
+        
+        .join-options p {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            margin-bottom: 1rem !important;
+            clear: both !important;
+        }
+        
+        .offer-input-container {
+            display: -webkit-flex !important;
+            display: flex !important;
+            -webkit-flex-direction: column !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 1rem !important;
+        }
+        
+        .offer-input-container textarea {
+            width: 100% !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .offer-input-container button {
+            width: 100% !important;
+        }
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 0.25rem;
+        width: 100%;
+    }
+    
     .card {
-        padding: 1rem;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    header {
+        padding: 0.75rem;
+        width: 100%;
+    }
+    
+    header h1 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+    
+    header p {
+        font-size: 0.9rem;
+        line-height: 1.3;
     }
     
     .btn {
-        padding: 0.625rem 1.25rem;
-        font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
     }
     
-    .room-options .btn {
-        padding: 1rem 1.5rem;
+    .btn-large {
+        padding: 0.875rem 1.25rem;
         font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .instructions-content {
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .instruction-section {
+        width: 100%;
+    }
+    
+    .instruction-section ol {
+        padding-left: 1rem;
+        width: 100%;
+    }
+    
+    .instruction-section li {
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+    
+    .security-info p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .video-wrapper {
+        min-height: 180px;
+        width: 100%;
+    }
+    
+    .chat-messages {
+        height: 180px;
+        padding: 0.75rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .message {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.7rem;
+        margin-bottom: 0.75rem;
+        max-width: 90%;
+    }
+    
+    .chat-input {
+        padding: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .chat-input input {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.9rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .offer-input-container,
+    .answer-input-container {
+        width: 100%;
+    }
+    
+    .offer-input-container textarea,
+    .answer-input-container textarea {
+        min-height: 100px;
+        font-size: 0.8rem;
+        padding: 0.625rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .call-description {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        text-align: center;
+    }
+    
+    .join-description {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        text-align: left;
+    }
+    
+    /* Additional mobile fixes for very small screens */
+    .divider {
+        margin: 1.5rem 0;
+    }
+    
+    .divider span {
+        font-size: 0.9rem;
+        padding: 0 0.75rem;
+    }
+    
+    .join-options {
+        text-align: left;
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .join-options h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        display: block !important;
+        width: 100% !important;
+        clear: both;
+    }
+    
+    .join-options p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        display: block !important;
+        width: 100% !important;
+        clear: both;
+    }
+    
+    .offer-input-container,
+    .answer-input-container {
+        gap: 1rem;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    /* Force main actions to be vertical on small mobile */
+    .main-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    .main-actions .call-options,
+    .main-actions .divider,
+    .main-actions .join-options {
+        width: 100% !important;
+        margin-bottom: 1.5rem;
+        flex: none !important;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+        .main-actions {
+            display: -webkit-flex !important;
+            display: flex !important;
+            -webkit-flex-direction: column !important;
+            flex-direction: column !important;
+            -webkit-align-items: stretch !important;
+            align-items: stretch !important;
+        }
+        
+        .join-options {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+        }
+        
+        .join-options h3 {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            margin-bottom: 1rem !important;
+            clear: both !important;
+        }
+        
+        .join-options p {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            margin-bottom: 1rem !important;
+            clear: both !important;
+        }
+        
+        .offer-input-container {
+            display: -webkit-flex !important;
+            display: flex !important;
+            -webkit-flex-direction: column !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 1rem !important;
+        }
+        
+        .offer-input-container textarea {
+            width: 100% !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .offer-input-container button {
+            width: 100% !important;
+        }
     }
 }

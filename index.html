@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Papaphone - Family Video Calls</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -68,7 +68,7 @@
         <section id="callSetup" class="card main-actions">
             <div class="call-options">
                 <button id="createCallBtn" class="btn btn-primary btn-large">
-                    <span>📞</span> <span data-i18n="setup.createCall">Create Call</span>
+                    📞 <span data-i18n="setup.createCall">Create Call</span>
                 </button>
                 <p class="call-description" data-i18n="setup.createCallDescription">Create a secure peer-to-peer video call</p>
             </div>
@@ -150,10 +150,10 @@
                     <div class="video-label" data-i18n="video.you">You</div>
                     <div class="video-controls">
                         <button id="toggleVideoBtn" class="control-btn" aria-label="Toggle video" title="Toggle video">
-                            <span data-i18n="video.toggleVideo">📹</span>
+                            📹
                         </button>
                         <button id="toggleAudioBtn" class="control-btn" aria-label="Toggle audio" title="Toggle audio">
-                            <span data-i18n="video.toggleAudio">🎤</span>
+                            🎤
                         </button>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
         <section id="chatContainer" class="card chat-section hidden">
             <div class="chat-header">
                 <h3 data-i18n="chat.title">💬 Chat</h3>
-                <button id="toggleChatBtn" class="btn btn-small" aria-label="Toggle chat" data-i18n="chat.toggle">−</button>
+                <button id="toggleChatBtn" class="btn btn-small" aria-label="Toggle chat">−</button>
             </div>
             
             <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Chat messages"></div>

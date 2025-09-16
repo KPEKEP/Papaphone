@@ -806,9 +806,9 @@ class ServerlessWebRTC {
         }
         
         navigator.clipboard.writeText(offer).then(() => {
-            this.elements.copyOfferBtn.textContent = '✓ Copied!';
+            this.elements.copyOfferBtn.innerHTML = '✓ Copied!';
             setTimeout(() => {
-                this.elements.copyOfferBtn.innerHTML = '📋 Copy Offer';
+                this.elements.copyOfferBtn.innerHTML = '📋 <span data-i18n="created.copyOffer">' + this.i18n.t('created.copyOffer') + '</span>';
             }, 2000);
             this.showToast(this.i18n.t('toast.offerCopied'), 'success');
         }).catch(() => {
@@ -824,9 +824,9 @@ class ServerlessWebRTC {
         }
         
         navigator.clipboard.writeText(answer).then(() => {
-            this.elements.copyAnswerBtn.textContent = '✓ Copied!';
+            this.elements.copyAnswerBtn.innerHTML = '✓ Copied!';
             setTimeout(() => {
-                this.elements.copyAnswerBtn.innerHTML = '📋 Copy Answer';
+                this.elements.copyAnswerBtn.innerHTML = '📋 <span data-i18n="active.copyAnswer">' + this.i18n.t('active.copyAnswer') + '</span>';
             }, 2000);
             this.showToast(this.i18n.t('toast.answerCopied'), 'success');
         }).catch(() => {

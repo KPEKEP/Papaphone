@@ -32,29 +32,29 @@ class Localization {
                 'status.noMediaStreams': 'Connected but no media streams',
                 
                 // Call Setup
-                'setup.createCall': '📞 Create Call',
+                'setup.createCall': 'Create Call',
                 'setup.createCallDescription': 'Create a secure peer-to-peer video call',
                 'setup.or': 'OR',
                 'setup.joinCall': 'Join a Call',
                 'setup.joinCallDescription': 'Paste the offer you received:',
                 'setup.offerPlaceholder': 'Paste the offer here...',
-                'setup.joinCallButton': '🎥 Join Call',
+                'setup.joinCallButton': 'Join Call',
                 
                 // Call Created
                 'created.title': 'Call Ready! 📞',
                 'created.description': 'Copy this offer and send it to the person you want to call:',
-                'created.copyOffer': '📋 Copy Offer',
+                'created.copyOffer': 'Copy Offer',
                 'created.offerStatus': 'Generating secure offer...',
                 'created.offerReady': 'Offer ready! Copy and share it.',
                 'created.waitingResponse': 'Waiting for Response',
                 'created.waitingDescription': 'When the other person joins, they\'ll send you an answer. Paste it below:',
                 'created.answerPlaceholder': 'Paste the answer here...',
-                'created.startCall': '🎥 Start Call',
+                'created.startCall': 'Start Call',
                 
                 // Call Active
                 'active.title': 'Connected! 📹',
                 'active.description': 'Copy this answer and send it back to complete the connection:',
-                'active.copyAnswer': '📋 Copy Answer',
+                'active.copyAnswer': 'Copy Answer',
                 'active.answerStatus': 'Generating answer...',
                 'active.answerReady': 'Answer ready! Copy and send it back.',
                 'active.callActiveTitle': 'Call Active!',
@@ -63,20 +63,17 @@ class Localization {
                 // Video Chat
                 'video.you': 'You',
                 'video.remote': 'Remote',
-                'video.toggleVideo': '📹',
-                'video.toggleAudio': '🎤',
                 
                 // Chat
                 'chat.title': '💬 Chat',
                 'chat.placeholder': 'Type a message...',
                 'chat.send': 'Send',
-                'chat.toggle': '−',
                 
                 // File Transfer
                 'file.title': '📁 File Transfer',
-                'file.send': '📤 Send File',
+                'file.send': 'Send File',
                 'file.received': 'Received Files:',
-                'file.download': '📥 Download',
+                'file.download': 'Download',
                 'file.sendProgress': 'Sending...',
                 'file.receiveProgress': 'Receiving...',
                 
@@ -160,29 +157,29 @@ class Localization {
                 'status.noMediaStreams': 'Подключен, но нет медиа потоков',
                 
                 // Call Setup
-                'setup.createCall': '📞 Создать звонок',
+                'setup.createCall': 'Создать звонок',
                 'setup.createCallDescription': 'Создать безопасный P2P видеозвонок',
                 'setup.or': 'ИЛИ',
                 'setup.joinCall': 'Присоединиться к звонку',
                 'setup.joinCallDescription': 'Вставьте полученное предложение:',
                 'setup.offerPlaceholder': 'Вставьте предложение сюда...',
-                'setup.joinCallButton': '🎥 Присоединиться',
+                'setup.joinCallButton': 'Присоединиться',
                 
                 // Call Created
                 'created.title': 'Звонок готов! 📞',
                 'created.description': 'Скопируйте это предложение и отправьте человеку, которому хотите позвонить:',
-                'created.copyOffer': '📋 Копировать предложение',
+                'created.copyOffer': 'Копировать предложение',
                 'created.offerStatus': 'Генерация безопасного предложения...',
                 'created.offerReady': 'Предложение готово! Скопируйте и поделитесь им.',
                 'created.waitingResponse': 'Ожидание ответа',
                 'created.waitingDescription': 'Когда другой человек присоединится, он отправит вам ответ. Вставьте его ниже:',
                 'created.answerPlaceholder': 'Вставьте ответ сюда...',
-                'created.startCall': '🎥 Начать звонок',
+                'created.startCall': 'Начать звонок',
                 
                 // Call Active
                 'active.title': 'Подключен! 📹',
                 'active.description': 'Скопируйте этот ответ и отправьте его обратно для завершения подключения:',
-                'active.copyAnswer': '📋 Копировать ответ',
+                'active.copyAnswer': 'Копировать ответ',
                 'active.answerStatus': 'Генерация ответа...',
                 'active.answerReady': 'Ответ готов! Скопируйте и отправьте его обратно.',
                 'active.callActiveTitle': 'Звонок активен!',
@@ -191,20 +188,17 @@ class Localization {
                 // Video Chat
                 'video.you': 'Вы',
                 'video.remote': 'Удаленный',
-                'video.toggleVideo': '📹',
-                'video.toggleAudio': '🎤',
                 
                 // Chat
                 'chat.title': '💬 Чат',
                 'chat.placeholder': 'Введите сообщение...',
                 'chat.send': 'Отправить',
-                'chat.toggle': '−',
                 
                 // File Transfer
                 'file.title': '📁 Передача файлов',
-                'file.send': '📤 Отправить файл',
+                'file.send': 'Отправить файл',
                 'file.received': 'Полученные файлы:',
-                'file.download': '📥 Скачать',
+                'file.download': 'Скачать',
                 'file.sendProgress': 'Отправка...',
                 'file.receiveProgress': 'Получение...',
                 
